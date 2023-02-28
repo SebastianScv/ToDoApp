@@ -34,8 +34,11 @@ import SidebarItemBase from "./SidebarItemBase.vue";
 import Modal from "@/components/modal";
 import { useStore } from "vuex";
 import { ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 const store = useStore();
+const route = useRoute();
+const router = useRouter();
 
 const props = defineProps({
   category: {
@@ -63,8 +66,15 @@ const editCategory = async () => {
   modalOpened.value = false;
 };
 
-const deleteCategory = () => {
-  store.dispatch("CategoriesModule/deleteCategory", { id: props.category._id });
+const deleteCategory = async () => {
+  await store.dispatch("CategoriesModule/deleteCategory", {
+    id: props.category._id,
+  });
+
+  const routeCategoryId = route.params.id;
+  if (routeCategoryId && routeCategoryId === props.category._id) {
+    router.push("/categories");
+  }
 };
 
 const onModalClose = () => {

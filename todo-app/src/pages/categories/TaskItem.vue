@@ -14,7 +14,7 @@
       </span>
     </div>
     <div class="flex ml-auto">
-      <div @click="onRemove">
+      <div @click="onRemove" class="cursor-pointer">
         <AppIcon name="trash" color="#FFF" />
       </div>
     </div>

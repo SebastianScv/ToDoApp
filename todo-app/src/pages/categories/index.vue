@@ -3,7 +3,7 @@
     <div
       v-for="category in categories"
       :key="category._id"
-      class="bg-secondar dark:bg-secondaryDark w-[20svh] flex justify-center rounded py-2 cursor-pointer text-white font-bold"
+      class="bg-secondary dark:bg-secondaryDark w-[20svh] flex justify-center rounded py-2 cursor-pointer text-white font-bold"
       @click="onCategoryClick(category)"
     >
       {{ category.name }}
