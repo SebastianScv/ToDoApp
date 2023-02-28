@@ -1,6 +1,6 @@
 # ToDoApp
 
-#Requirement
+# Requirements
 - Docker
 
 # Startup
