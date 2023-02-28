@@ -1,1 +1,1 @@
-# NodeJS app where I learn stuff
+# NodeJS Api for todo app
