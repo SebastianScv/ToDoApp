@@ -5,7 +5,7 @@
       class="bg-secondary dark:bg-secondaryDark h-full w-full items-center flex flex-col relative text-black dark:text-darken"
     >
       <div
-        class="flex flex-col w-full space-y-2 flex-1 max-h-[84svh] overflow-scroll sm:overflow-hidden sm:max-h-[91svh] sm:px-2"
+        class="flex flex-col w-full space-y-2 flex-1 max-h-[84svh] overflow-scroll sm:overflow-hidden sm:max-h-[91svh]"
       >
         <CategoryItem
           v-for="category in categories"
@@ -24,11 +24,6 @@
         </div>
       </div>
 
-      <SidebarItemBase name="Logout">
-        <template v-slot:actions>
-          <AppIcon name="signout" />
-        </template>
-      </SidebarItemBase>
       <Teleport to="body">
         <Modal
           :modalOpened="modalOpened"

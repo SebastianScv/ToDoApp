@@ -1,11 +1,11 @@
 <template>
   <div
     :class="{
-      'bg-accent dark:bg-accentDark ': task.done,
-      'bg-secondary dark:bg-secondaryDark sm:bg-primary sm:dark:bg-primaryDark':
+      'bg-accent dark:bg-accentDark': task.done,
+      'bg-secondary dark:bg-secondaryDark sm:bg-secondary sm:dark:bg-primaryDark':
         !task.done,
     }"
-    class="flex text-white rounded mx-4 px-4 py-2 items-center sm:w-[30svw]"
+    class="flex rounded text-white mx-4 px-4 py-2 items-center sm:w-[30svw]"
   >
     <div class="flex space-x-2">
       <Checkbox :initialValue="task.done" @onChange="onTaskChange" />

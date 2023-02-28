@@ -1,5 +1,5 @@
 <template>
-  <div class="cursor-pointer">
+  <div class="cursor-pointer sm:mr-2">
     <SidebarItemBase :name="category.name" :id="category._id">
       <template v-slot:actions>
         <AppIcon name="pen" @click="onEditCategory" />

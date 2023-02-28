@@ -5,7 +5,6 @@
 </template>
 
 <script setup>
-import { useDark } from "@vueuse/core";
 import { computed } from "vue";
 
 const props = defineProps({
@@ -20,11 +19,11 @@ const props = defineProps({
 });
 
 const fillColor = computed(() => {
-  const isDark = useDark();
   if (props.color) {
     return props.color;
   }
-
-  return isDark ? "#22BE74" : "#F3EADA";
+  console.log("changed");
+  // return "#22BE74" : "#F3EADA";
+  return "#22BE74";
 });
 </script>

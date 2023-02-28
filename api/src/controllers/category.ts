@@ -19,7 +19,10 @@ export async function getCategories(
 
 export async function addCategory(req: Request, res: Response, next: Function) {
     try {
-        console.log(req.body);
+        const name = req.body.name;
+        if (!name) {
+            return res.status(400).send({ message: 'Name could not be empty' });
+        }
         await CategoriesRepository.getInstance().createCategory(
             new Category(req.body.name)
         );

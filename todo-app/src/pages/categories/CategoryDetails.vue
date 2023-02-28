@@ -1,8 +1,7 @@
 <template>
   <div class="flex flex-col mt-4 h-[86svh] sm:items-center">
     <div
-      v-if="tasks.length"
-      class="flex flex-col flex-1 space-y-4 sm:items-center sm:bg-secondaryDark sm:rounded sm:pt-4 sm:mb-4 sm:w-[35svw]"
+      class="flex flex-col flex-1 space-y-4 sm:items-center bg-primary dark:bg-primaryDark sm:bg-white sm:dark:bg-secondaryDark sm:rounded pt-4 mb-4 sm:w-[35svw]"
     >
       <TaskItem v-for="task in tasks" :key="task.id" :task="task" />
     </div>

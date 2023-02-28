@@ -19,7 +19,6 @@ const isChecked = ref(props.initialValue);
 
 const emits = defineEmits(["onChange"]);
 const icon = computed(() => {
-  debugger;
   return isChecked.value ? "check-circle" : "circle";
 });
 const toggleCheck = () => {

@@ -20,12 +20,17 @@ export async function getTasks(req: Request, res: Response, next: Function) {
 export async function addTask(req: Request, res: Response, next: Function) {
     try {
         const categoryId = req.body.categoryId;
+        const name = req.body.name;
+        if (!name) {
+            return res.status(400).send({ message: 'Name could not be empty' });
+        }
+
         const category = await CategoriesRepository.getInstance().findOne(
             categoryId
         );
         console.log(category);
         if (!category) {
-            res.status(400).send({ message: 'Category does not exist' });
+            return res.status(400).send({ message: 'Category does not exist' });
         }
 
         await TasksRepository.getInstance().createTask(
