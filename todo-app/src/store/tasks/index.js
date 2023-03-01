@@ -7,6 +7,7 @@ const tasksModule = {
   state() {
     return {
       tasks: [],
+      isLoading: false,
     };
   },
   getters,

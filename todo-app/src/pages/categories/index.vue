@@ -23,12 +23,7 @@
         @onClose="onModalClose"
       >
         <template v-slot:content>
-          <input
-            type="text"
-            v-model="newCategoryName"
-            class="text-black"
-            placeholder="Category name"
-          />
+          <TextInput v-model="newCategoryName" placeholder="Category name" />
         </template>
         <template v-slot:actions>
           <div @click="addNewCategory">Add new Category</div>
@@ -43,6 +38,7 @@ import Modal from "@/components/modal";
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
+import TextInput from "@/components/textInput";
 
 const store = useStore();
 const router = useRouter();

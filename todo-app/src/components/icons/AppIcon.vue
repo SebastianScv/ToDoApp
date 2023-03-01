@@ -6,6 +6,9 @@
 
 <script setup>
 import { computed } from "vue";
+import { useDark } from "@vueuse/core";
+
+const isDark = useDark();
 
 const props = defineProps({
   name: {
@@ -23,6 +26,6 @@ const fillColor = computed(() => {
     return props.color;
   }
 
-  return "#22BE74";
+  return isDark.value ? "#22BE74" : "#FFA17A";
 });
 </script>

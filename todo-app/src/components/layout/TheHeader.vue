@@ -21,11 +21,10 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-
 const route = useRoute();
-console.log(route.params.id);
 
 const categories = computed(() => store.getters["CategoriesModule/categories"]);
+
 const name = computed(() => {
   const categoryName = categories.value.find(({ _id }) => {
     return _id === route.params.id;

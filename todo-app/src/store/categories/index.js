@@ -7,6 +7,7 @@ const categoriesModule = {
   state() {
     return {
       categories: [],
+      isLoading: false,
     };
   },
   getters,

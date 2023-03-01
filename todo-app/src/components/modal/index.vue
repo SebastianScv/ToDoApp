@@ -9,7 +9,11 @@
       >
         <div class="flex">
           <div class="font-bold text-xl">{{ title }}</div>
-          <AppIcon class="flex ml-auto" name="times-square" @click="onClose" />
+          <AppIcon
+            class="flex ml-auto cursor-pointer"
+            name="times-square"
+            @click="onClose"
+          />
         </div>
         <div class="my-4">
           <slot name="content"> </slot>

@@ -13,12 +13,7 @@
         @onClose="onModalClose"
       >
         <template v-slot:content>
-          <input
-            type="text"
-            v-model="newCategoryName"
-            class="text-black"
-            placeholder="Category name"
-          />
+          <TextInput v-model="newCategoryName" placeholder="Category name" />
         </template>
         <template v-slot:actions>
           <div @click="editCategory">Edit category</div>
@@ -29,6 +24,7 @@
 </template>
 
 <script setup>
+import TextInput from "@/components/textInput";
 import AppIcon from "@/components/icons/AppIcon.vue";
 import SidebarItemBase from "./SidebarItemBase.vue";
 import Modal from "@/components/modal";

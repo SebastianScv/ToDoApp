@@ -22,12 +22,7 @@
         @onClose="onModalClose"
       >
         <template v-slot:content>
-          <input
-            type="text"
-            v-model="newTaskName"
-            class="text-black"
-            placeholder="Task name"
-          />
+          <TextInput v-model="newTaskName" placeholder="Task name" />
         </template>
         <template v-slot:actions>
           <div @click="addNewTask">Add new Task</div>
@@ -39,6 +34,7 @@
 
 <script setup>
 import TaskItem from "./TaskItem.vue";
+import TextInput from "@/components/textInput";
 import Modal from "@/components/modal";
 import { computed, onMounted, ref } from "vue";
 import { useStore } from "vuex";

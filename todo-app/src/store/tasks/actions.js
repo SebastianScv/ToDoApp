@@ -1,19 +1,25 @@
 import axios from "axios";
+import { BASE_URL } from "@/api";
 
 export default {
   async getTasks(context, { categoryId }) {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/tasks/${categoryId}`
-      );
+      context.commit("setIsLoading", true);
+      const response = await axios.get(`${BASE_URL}/tasks/${categoryId}`);
       context.commit("setTasks", { tasks: response.data.tasks });
     } catch (error) {
       console.log(error);
+    } finally {
+      context.commit("setIsLoading", false);
     }
   },
   async addTask(context, { name, done, categoryId }) {
+    if (context.getters.isLoading) {
+      return;
+    }
     try {
-      await axios.post("http://localhost:3000/tasks/add", {
+      context.commit("setIsLoading", true);
+      await axios.post(`${BASE_URL}/tasks/add`, {
         name,
         done,
         categoryId,
@@ -21,22 +27,36 @@ export default {
       context.dispatch("getTasks", { categoryId });
     } catch (error) {
       console.log(error);
+    } finally {
+      context.commit("setIsLoading", false);
     }
   },
   async updateTask(context, { task }) {
+    if (context.getters.isLoading) {
+      return;
+    }
     try {
-      await axios.put(`http://localhost:3000/tasks/update/${task._id}`, task);
+      context.commit("setIsLoading", true);
+      await axios.put(`${BASE_URL}/tasks/update/${task._id}`, task);
       context.dispatch("getTasks", { categoryId: task.categoryId });
     } catch (error) {
       console.log(error);
+    } finally {
+      context.commit("setIsLoading", false);
     }
   },
   async deleteTask(context, { task }) {
+    if (context.getters.isLoading) {
+      return;
+    }
     try {
-      await axios.delete(`http://localhost:3000/tasks/remove/${task._id}`);
+      context.commit("setIsLoading", true);
+      await axios.delete(`${BASE_URL}/tasks/remove/${task._id}`);
       context.dispatch("getTasks", { categoryId: task.categoryId });
     } catch (error) {
       console.log(error);
+    } finally {
+      context.commit("setIsLoading", false);
     }
   },
 };
