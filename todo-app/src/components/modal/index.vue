@@ -2,7 +2,7 @@
   <transition name="modal">
     <div
       v-show="modalOpened"
-      class="fixed bg-[#0008] top-0 h-full w-full flex text-white items-center justify-center"
+      class="fixed bg-[#0008] top-0 h-full w-full flex text-white items-center justify-center sm:z-[100]"
     >
       <div
         class="flex flex-col bg-secondary dark:bg-secondaryDark p-4 rounded min-w-[300px] sm:min-w-[300px]"
@@ -19,7 +19,7 @@
           <slot name="content"> </slot>
         </div>
         <div
-          class="flex justify-center bg-accent dark:bg-accentDark rounded cursor-pointer py-1 px-2 max-w-[200px]"
+          class="flex justify-center bg-accent dark:bg-accentDark rounded cursor-pointer py-1 px-2 w-full items-center"
         >
           <slot name="actions"> </slot>
         </div>
